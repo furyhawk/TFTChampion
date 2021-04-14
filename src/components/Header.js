@@ -1,11 +1,15 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import { useSelector } from 'react-redux'
 
 function Header(props) {
     const { title } = props
+    const listItems = useSelector(state => state.itemList)
+
     return (
         <View style={styles.container}>
             <Text style={styles.text}>{title}</Text>
+            <Text style={styles.subTitle}>Left: {listItems.length}</Text>
         </View>
     )
 }

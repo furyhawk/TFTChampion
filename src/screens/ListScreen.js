@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, StatusBar, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, StatusBar, Text, View, TouchableOpacity, FlatList } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import { useSelector } from 'react-redux'
 
@@ -38,7 +38,19 @@ function ListView() {
                 paddingVertical: 20
             }}>
             {listItems.length !== 0 ? (
-                <Text>Here goes list items</Text>
+                <FlatList
+                    data={listItems}
+                    keyExtractor={item => item.id.toString()}
+                    renderItem={({ item }) => (
+                        <View style={styles.listItemContainer}>
+                            <View style={styles.listItemMetaContainer}>
+                                <Text style={styles.itemTitle} numberOfLines={1}>
+                                    {item.name}
+                                </Text>
+                            </View>
+                        </View>
+                    )}
+                />
             ) : (
                 <Text style={{ fontSize: 30 }}>You list is empty :'(</Text>
             )
