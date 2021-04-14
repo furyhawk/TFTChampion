@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, TouchableOpacity, Text, View, TextInput } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
+import { useDispatch } from 'react-redux'
+
+import { addItem } from '../redux/reducer'
+
+
 
 function ModalScreen({ navigation }) {
-    const value = ''
+    // const value = ''
+    const [value, setValue] = useState('')
+    const dispatch = useDispatch()
+    const onSaveNote = value => {
+        dispatch(addItem(value))
+        navigation.navigate('List')
+    }
     return (
         <View style={styles.container}>
             <View style={styles.innerContainer}>
@@ -26,8 +37,8 @@ function ModalScreen({ navigation }) {
                         clearButtonMode='while-editing'
                     />
                     <TouchableOpacity
-                    onPress={ () => navigation.navigate('List')}>
-                        <Ionicons name='ios-arrow-down-circle' size={40} color='#fff' />
+                        onPress={() => onSaveNote(value)}>
+                        <Ionicons name='ios-arrow-down-circle' size={40} color='#888' />
                     </TouchableOpacity>
                 </View>
             </View>
