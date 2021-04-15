@@ -40,7 +40,7 @@ function ListView() {
             {listItems.length !== 0 ? (
                 <FlatList
                     data={listItems}
-                    keyExtractor={item => item.id.toString()}
+                    keyExtractor={item => item.championId.toString()}
                     renderItem={({ item }) => (
                         <View style={styles.listItemContainer}>
                             <View style={styles.listItemMetaContainer}>

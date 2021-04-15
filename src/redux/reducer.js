@@ -1,3 +1,6 @@
+const champions = require('../../assets/champions.json')
+
+
 export const ADD_ITEM = 'ADD_ITEM'
 
 
@@ -9,7 +12,7 @@ export const addItem = item => ({
 
 
 const initialState = {
-    itemList: []
+    itemList: champions
 }
 
 const rootReducer = (state = initialState, action) => {
