@@ -1,5 +1,20 @@
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, Text } from 'react-native';
+
+const ChampionView = ({ champion }) => {
+
+  return (
+    <View style={styles.container}>
+      <Image
+        style={styles.tinyLogo}
+        source={require('../../assets/champions/' + champion.championId + '.png')}
+      />
+      <Text style={styles.itemTitle} numberOfLines={1}>
+        {champion.name}, Cost: {champion.cost}
+      </Text>
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -14,28 +29,5 @@ const styles = StyleSheet.create({
     height: 58,
   },
 });
-
-const ChampionView = () => {
-  return (
-    <View style={styles.container}>
-      <Image
-        style={styles.tinyLogo}
-        source={require('@expo/snack-static/react-native-logo.png')}
-      />
-      <Image
-        style={styles.tinyLogo}
-        source={{
-          uri: 'https://reactnative.dev/img/tiny_logo.png',
-        }}
-      />
-      <Image
-        style={styles.logo}
-        source={{
-          uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
-        }}
-      />
-    </View>
-  );
-}
 
 export default ChampionView

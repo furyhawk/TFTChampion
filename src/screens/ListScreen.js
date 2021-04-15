@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 
 import { getChampions } from '../redux/actions'
 import Header from '../components/Header'
+import ChampionView from '../components/ChampionView'
 
 function ListScreen({ navigation }) {
     return (
@@ -52,9 +53,7 @@ function ListView() {
                     renderItem={({ item }) => (
                         <View style={styles.listItemContainer}>
                             <View style={styles.listItemMetaContainer}>
-                                <Text style={styles.itemTitle} numberOfLines={1}>
-                                    {item.name}
-                                </Text>
+                                <ChampionView champion={item}  />
                             </View>
                         </View>
                     )}

@@ -8,7 +8,6 @@ import { addItem } from '../redux/actions'
 
 
 function ModalScreen({ navigation }) {
-    // const value = ''
     const [value, setValue] = useState('')
     const dispatch = useDispatch()
     const onSaveNote = value => {
