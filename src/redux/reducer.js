@@ -1,15 +1,6 @@
+import { ADD_ITEM, GET_CHAMPIONS } from './actions';
+
 const champions = require('../../assets/champions.json')
-
-
-export const ADD_ITEM = 'ADD_ITEM'
-
-
-export const addItem = item => ({
-    type: ADD_ITEM,
-    payload: item
-})
-
-
 
 const initialState = {
     itemList: champions
@@ -21,9 +12,14 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 itemList: state.itemList.concat({
-                    id: Math.random(),
+                    championId: Math.random(),
                     name: action.payload
                 })
+            }
+        case GET_CHAMPIONS:
+            return {
+                ...state,
+                itemList: state.itemList.push(champions)
             }
         default:
             return state

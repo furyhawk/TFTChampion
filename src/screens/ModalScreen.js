@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity, Text, View, TextInput } from 'react-nativ
 import { Ionicons } from '@expo/vector-icons'
 import { useDispatch } from 'react-redux'
 
-import { addItem } from '../redux/reducer'
+import { addItem } from '../redux/actions'
 
 
 
