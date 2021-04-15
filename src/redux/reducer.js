@@ -1,9 +1,7 @@
 import { ADD_ITEM, GET_CHAMPIONS } from './actions';
 
-const champions = require('../../assets/champions.json')
-
 const initialState = {
-    itemList: champions
+    itemList: []
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -19,7 +17,7 @@ const rootReducer = (state = initialState, action) => {
         case GET_CHAMPIONS:
             return {
                 ...state,
-                itemList: state.itemList.push(champions)
+                itemList: action.payload
             }
         default:
             return state

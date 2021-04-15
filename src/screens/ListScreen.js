@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { StyleSheet, StatusBar, Text, View, TouchableOpacity, FlatList } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
+import { getChampions } from '../redux/actions'
 import Header from '../components/Header'
 
 function ListScreen({ navigation }) {
@@ -26,6 +28,12 @@ function ListScreen({ navigation }) {
 
 function ListView() {
     const listItems = useSelector(state => state.itemList)
+
+    const dispatch = useDispatch();
+    const fetchChampions = () => dispatch(getChampions());
+    useEffect(() => {
+        fetchChampions();
+    }, []);
 
     return (
         <View
