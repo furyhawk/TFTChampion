@@ -8,6 +8,8 @@ import { getChampions } from '../redux/actions'
 import Header from '../components/Header'
 import ChampionView from '../components/ChampionView'
 
+const numColumns = 4;
+
 function ListScreen({ navigation }) {
     return (
         <>
@@ -50,6 +52,7 @@ function ListView() {
                 <FlatList
                     data={listItems}
                     keyExtractor={item => item.championId.toString()}
+                    numColumns={numColumns}
                     renderItem={({ item }) => (
                         <View style={styles.listItemContainer}>
                             <View style={styles.listItemMetaContainer}>
@@ -72,6 +75,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'blue'
+    },
+    listItemContainer: {
+        aspectRatio: 1,
+        flex: 1 / numColumns,
+        backgroundColor: 'transparent'
     },
     fabContainer: {
         justifyContent: 'flex-end',
