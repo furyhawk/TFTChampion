@@ -8,7 +8,7 @@ import { getChampions } from '../redux/actions'
 import Header from '../components/Header'
 import ChampionView from '../components/ChampionView'
 
-const numColumns = 4;
+const numColumns = 4; //number of column per row to display
 
 function ListScreen({ navigation }) {
     return (

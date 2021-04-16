@@ -7,11 +7,12 @@ const ChampionView = ({ champion }) => {
       {trait}
     </Text>
   )
+  const championImageUri = '../../assets/champions/' + champion.championId + '.png'
   return (
     <View style={styles.container}>
       <Image
         style={styles.tinyLogo}
-        source={require('../../assets/champions/' + champion.championId + '.png')}
+        source={require(championImageUri)}
       />
       <View style={styles.containerColumn}>
         <Text style={styles.itemTitle} numberOfLines={1}>
