@@ -12,7 +12,7 @@ const ChampionView = ({ champion }) => {
     <View style={styles.container}>
       <Image
         style={styles.tinyLogo}
-        source={require(championImageUri)}
+        source={require('../../assets/champions/' + champion.championId + '.png')}
       />
       <View style={styles.containerColumn}>
         <Text style={styles.itemTitle} numberOfLines={1}>
