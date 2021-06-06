@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    paddingTop: 20
+    padding: 10
   },
   containerColumn: {
     flexDirection: 'column',
@@ -39,17 +39,19 @@ const styles = StyleSheet.create({
   itemTitle: {
     flex: 1,
     fontWeight: 'bold',
-    paddingStart: 20
+    paddingStart: 10
   },
   itemChild: {
     flex: 1,
-    paddingStart: 20
+    paddingStart: 10,
+    paddingEnd: 10
   },
   tinyLogo: {
     alignContent: 'center',
     width: 80,
     height: 80,
-    marginStart: 20
+    marginStart: 20,
+    padding: 10
   },
   logo: {
     width: 66,

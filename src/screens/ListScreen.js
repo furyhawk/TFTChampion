@@ -4,6 +4,10 @@ import { Ionicons } from '@expo/vector-icons'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+
 import { getChampions } from '../redux/actions'
 import Header from '../components/Header'
 import ChampionView from '../components/ChampionView'
@@ -49,6 +53,7 @@ function ListView() {
                 paddingVertical: 20
             }}>
             {listItems.length !== 0 ? (
+                
                 <FlatList
                     data={listItems}
                     keyExtractor={item => item.championId.toString()}
@@ -56,11 +61,18 @@ function ListView() {
                     renderItem={({ item }) => (
                         <View style={styles.listItemContainer}>
                             <View style={styles.listItemMetaContainer}>
-                                <ChampionView champion={item}  />
+                        {/* <Grid container spacing={4}>
+                            <Grid item xs={12} sm={11} md={11}> */}
+                                <Paper>
+                                    <ChampionView champion={item}  />
+                                </Paper>
+                             {/* </Grid>
+                         </Grid>     */}
                             </View>
                         </View>
                     )}
                 />
+                
             ) : (
                 <Text style={{ fontSize: 30 }}>You list is empty :'(</Text>
             )
@@ -79,7 +91,8 @@ const styles = StyleSheet.create({
     listItemContainer: {
         aspectRatio: 1,
         flex: 1 / numColumns,
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
+        margin: 12
     },
     fabContainer: {
         justifyContent: 'flex-end',
