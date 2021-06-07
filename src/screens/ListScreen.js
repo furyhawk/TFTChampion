@@ -19,7 +19,7 @@ function ListScreen({ navigation }) {
         <>
             <StatusBar barStyle='light-content' />
             <View style={styles.container}>
-                <Header title={'List'} />
+                <Header title={'TFT Champion set 5'} />
                 <ListView />
                 <View style={styles.fabContainer}>
                     <TouchableOpacity
@@ -86,7 +86,7 @@ function ListView() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'blue'
+        backgroundColor: 'grey'
     },
     listItemContainer: {
         aspectRatio: 1,

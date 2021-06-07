@@ -9,7 +9,7 @@ function Header(props) {
     return (
         <View style={styles.container}>
             <Text style={styles.text}>{title}</Text>
-            <Text style={styles.subTitle}>Left: {listItems.length}</Text>
+            <Text style={styles.subTitle}>{listItems.length} champions</Text>
         </View>
     )
 }
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'blue',
+        backgroundColor: 'grey',
         height: 125,
         paddingTop: 20
     },
@@ -28,7 +28,11 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 28,
         fontWeight: '500'
+    },
+    subTitle: {
+        color: '#fff'
     }
+
 })
 
 export default Header
