@@ -8,8 +8,10 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
+
 import { getChampions } from '../redux/actions'
 import Header from '../components/Header'
+import FixedPosition from '../components/FixedPosition'
 import ChampionView from '../components/ChampionView'
 
 const numColumns = 4; //number of column per row to display
@@ -19,6 +21,7 @@ function ListScreen({ navigation }) {
         <>
             <StatusBar barStyle='light-content' />
             <View style={styles.container}>
+                <FixedPosition />
                 <Header title={'TFT Champion set 5'} />
                 <ListView />
                 <View style={styles.fabContainer}>
