@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
@@ -17,12 +17,12 @@ import ChampionView from '../components/ChampionView'
 const numColumns = 4; //number of column per row to display
 
 function ListScreen({ navigation }) {
+    // const styles = useStyles()
     return (
         <>
-            <StatusBar barStyle='light-content' />
             <View style={styles.container}>
-                <FixedPosition />
-                <Header title={'TFT Champion set 5'} />
+                <FixedPosition title={'TFT Champion set 5'} />
+                {/* <Header title={'TFT Champion set 5'} /> */}
                 <ListView />
                 <View style={styles.fabContainer}>
                     <TouchableOpacity
@@ -31,12 +31,14 @@ function ListScreen({ navigation }) {
                         <Ionicons name='ios-add' color='#fff' size={70} />
                     </TouchableOpacity>
                 </View>
+                <StatusBar barStyle='light-content' />
             </View>
         </>
     )
 }
 
 function ListView() {
+    // const styles = useStyles()
     const listItems = useSelector(state => state.itemList)
 
     const dispatch = useDispatch();
@@ -85,11 +87,37 @@ function ListView() {
     )
 }
 
-
+const useStyles = makeStyles(theme => ({
+    container: {
+        flex: 1,
+        backgroundColor: 'white'
+    },
+    listItemContainer: {
+        aspectRatio: 1,
+        flex: 1 / numColumns,
+        backgroundColor: 'transparent',
+        margin: 12
+    },
+    fabContainer: {
+        justifyContent: 'flex-end',
+        flexDirection: 'row',
+        position: 'absolute',
+        right: 10,
+        bottom: 20
+    },
+    fabButton: {
+        backgroundColor: 'blue',
+        borderRadius: 35,
+        width: 70,
+        height: 70,
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
+  }));
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'grey'
+        backgroundColor: 'white'
     },
     listItemContainer: {
         aspectRatio: 1,
