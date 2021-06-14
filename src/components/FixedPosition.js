@@ -10,6 +10,9 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import TextField from '@material-ui/core/TextField';
+import SearchIcon from '@material-ui/icons/Search';
 
 const styles = theme => ({
   root: {
@@ -35,7 +38,8 @@ const useStyles = makeStyles(theme => ({
     marginLeft: -12,
     marginRight: 20
   },
-  toolbarMargin: theme.mixins.toolbar
+  toolbarMargin: theme.mixins.toolbar,
+  search: { marginLeft: theme.spacing(2) }
 }));
 
 // const FixedPosition = withStyles(styles)(({ title, classes }) => (
@@ -61,6 +65,17 @@ function FixedPosition(props) {
           >
             {title}
           </Typography>
+          <TextField
+
+            id="input-search"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              )
+            }}
+          />
           <Tabs>
             <Tab label={listItems.length + " champions"} />
           </Tabs>

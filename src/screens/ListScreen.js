@@ -66,13 +66,9 @@ function ListView() {
                     renderItem={({ item }) => (
                         <View style={styles.listItemContainer}>
                             <View style={styles.listItemMetaContainer}>
-                        {/* <Grid container spacing={4}>
-                            <Grid item xs={12} sm={11} md={11}> */}
                                 <Paper>
                                     <ChampionView champion={item}  />
                                 </Paper>
-                             {/* </Grid>
-                         </Grid>     */}
                             </View>
                         </View>
                     )}
