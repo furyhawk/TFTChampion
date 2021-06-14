@@ -11,3 +11,8 @@ export const getChampions = () => ({
     payload: require('../../assets/champions.json')
 })
 
+export const SEARCH = 'SEARCH';
+
+export function search(value) {
+  return {type: SEARCH, value};
+}

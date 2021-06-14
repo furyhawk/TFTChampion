@@ -10,9 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import TextField from '@material-ui/core/TextField';
-import SearchIcon from '@material-ui/icons/Search';
+
+import SearchBar from '../components/SearchBar';
 
 const styles = theme => ({
   root: {
@@ -65,17 +64,8 @@ function FixedPosition(props) {
           >
             {title}
           </Typography>
-          <TextField
-
-            id="input-search"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              )
-            }}
-          />
+          <SearchBar />
+          
           <Tabs>
             <Tab label={listItems.length + " champions"} />
           </Tabs>

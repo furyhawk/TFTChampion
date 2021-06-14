@@ -7,7 +7,7 @@ const ChampionView = ({ champion }) => {
       {trait}
     </Text>
   )
-  const championImageUri = '../../assets/champions/' + champion.championId + '.png'
+  const championImageUri = '@/assets/champions/' + champion.championId + '.png'
   return (
     <View style={styles.container}>
       <Image

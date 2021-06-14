@@ -40,6 +40,7 @@ function ListScreen({ navigation }) {
 function ListView() {
     // const styles = useStyles()
     const listItems = useSelector(state => state.itemList)
+    const filteredItems = useSelector(state => state.filteredList)
 
     const dispatch = useDispatch();
     const fetchChampions = () => dispatch(getChampions());
@@ -57,10 +58,10 @@ function ListView() {
                 paddingHorizontal: 20,
                 paddingVertical: 20
             }}>
-            {listItems.length !== 0 ? (
+            {filteredItems.length !== 0 ? (
                 
                 <FlatList
-                    data={listItems}
+                    data={filteredItems}
                     keyExtractor={item => item.championId.toString()}
                     numColumns={numColumns}
                     renderItem={({ item }) => (

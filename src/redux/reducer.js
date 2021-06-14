@@ -1,7 +1,7 @@
-import { ADD_ITEM, GET_CHAMPIONS } from './actions';
+import { ADD_ITEM, GET_CHAMPIONS, SEARCH } from './actions';
 
 const initialState = {
-    itemList: []
+    itemList: [], filteredList: []
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -17,8 +17,14 @@ const rootReducer = (state = initialState, action) => {
         case GET_CHAMPIONS:
             return {
                 ...state,
-                itemList: action.payload
+                itemList: action.payload,
+                filteredList: action.payload
             }
+        case SEARCH: {
+            const { value } = action;
+            const filteredList = state.itemList.filter((val) => val.name.toUpperCase().includes(value.toUpperCase()));
+            return { ...state, value, filteredList: filteredList };
+        }
         default:
             return state
     }
