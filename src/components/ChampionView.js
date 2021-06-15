@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Image, StyleSheet, Text } from 'react-native';
+import { Asset } from 'expo-asset';
 
 const ChampionView = ({ champion }) => {
   const traits = champion.traits.map((trait) =>
@@ -7,12 +8,14 @@ const ChampionView = ({ champion }) => {
       {trait}
     </Text>
   )
-  const championImageUri = '@/assets/champions/' + champion.championId + '.png'
+
+  const championImageUri = Asset.fromModule(require('../../assets/champions/' + champion.championId + '.png')).uri;
+
   return (
     <View style={styles.container}>
       <Image
         style={styles.tinyLogo}
-        source={require('../../assets/champions/' + champion.championId + '.png')}
+        source={championImageUri}
       />
       <View style={styles.containerColumn}>
         <Text style={styles.itemTitle} numberOfLines={1}>
