@@ -46,6 +46,7 @@ function FixedPosition(props) {
   const classes = useStyles()
   const { title } = props
   const listItems = useSelector(state => state.itemList)
+  const filteredItems = useSelector(state => state.filteredList)
   return (
     <div className={classes.root}>
       <AppBar position="fixed">
@@ -67,7 +68,7 @@ function FixedPosition(props) {
           <SearchBar />
           
           <Tabs>
-            <Tab label={listItems.length + " champions"} />
+            <Tab label={filteredItems.length + " champions"} />
           </Tabs>
           {/* <Typography variant='subtitle1' classes={styles.subTitle}>{listItems.length} champions</Typography> */}
           {/* <Button color="inherit">Login</Button> */}
