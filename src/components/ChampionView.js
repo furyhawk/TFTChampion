@@ -3,7 +3,8 @@ import { View, Image, StyleSheet, Text } from 'react-native';
 import { Asset } from 'expo-asset';
 
 const ChampionView = ({ champion }) => {
-  const traits = champion.traits.map((trait) =>
+
+  const traits = champion.traits?.map((trait) =>
     <Text style={styles.itemChild} numberOfLines={1}>
       {trait}
     </Text>
@@ -24,28 +25,34 @@ const ChampionView = ({ champion }) => {
         <Text style={styles.itemChild} numberOfLines={1}>
           Cost: {champion.cost}
         </Text>
-        {traits}
+        {traits.length ? traits : <Text style={styles.itemChild}>No trait</Text>}
       </View>
     </View>
   );
 }
-
+// aspectRatio: 1,
+//         flex: 1 / numColumns,
+//         backgroundColor: 'transparent',
+//         margin: 12
 const styles = StyleSheet.create({
   container: {
+    // aspectRatio: 1,
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    padding: 10
+    padding: 10,
+    margin: 12,
+    backgroundColor: 'white'
   },
   containerColumn: {
     flexDirection: 'column',
   },
   itemTitle: {
-    flex: 1,
+    // flex: 1,
     fontWeight: 'bold',
     paddingStart: 10
   },
   itemChild: {
-    flex: 1,
+    // flex: 1,
     paddingStart: 10,
     paddingEnd: 10
   },

@@ -19,12 +19,13 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'grey',
+        backgroundColor: 'white',
         height: 125,
         paddingTop: 20
     },
 
     text: {
+        fontWeight: 'bold',
         color: '#fff',
         fontSize: 28,
         fontWeight: '500'
