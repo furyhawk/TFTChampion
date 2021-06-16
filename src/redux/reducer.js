@@ -22,7 +22,7 @@ const rootReducer = (state = initialState, action) => {
             }
         case SEARCH: {
             const { value } = action;
-            const filteredList = state.itemList.filter((val) => val.name.toUpperCase().includes(value.toUpperCase()));
+            const filteredList = state.itemList.filter((val) => val.name.includes(value));
             return { ...state, value, filteredList: filteredList };
         }
         default:

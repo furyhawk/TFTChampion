@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
+import { View, Image, StyleSheet, Text } from 'react-native';
 
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -15,7 +16,7 @@ import SearchBar from '../components/SearchBar';
 
 const styles = theme => ({
   root: {
-    flexGrow: 0.1
+    flexGrow: 1
   },
   flex: {
     flex: 1
@@ -28,7 +29,7 @@ const styles = theme => ({
 });
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 0.1
+    flexGrow: 1
   },
   flex: {
     flex: 1
@@ -48,8 +49,7 @@ function FixedPosition(props) {
   const listItems = useSelector(state => state.itemList)
   const filteredItems = useSelector(state => state.filteredList)
   return (
-    <div className={classes.root}>
-      <AppBar position="fixed">
+      <AppBar position="relative" className={classes.toolbarMargin}>
         <Toolbar>
           <IconButton
             className={classes.menuButton}
@@ -70,13 +70,8 @@ function FixedPosition(props) {
           <Tabs>
             <Tab label={filteredItems.length + " champions"} />
           </Tabs>
-          {/* <Typography variant='subtitle1' classes={styles.subTitle}>{listItems.length} champions</Typography> */}
-          {/* <Button color="inherit">Login</Button> */}
         </Toolbar>
       </AppBar>
-      {/* <div className={classes.toolbarMargin} /> */}
-    </div>
-    // ));
   );
 }
 
