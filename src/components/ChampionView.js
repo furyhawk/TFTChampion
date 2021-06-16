@@ -9,14 +9,14 @@ const ChampionView = ({ champion }) => {
     </Text>
   )
 
-  const championImageUri = Asset.fromModule(require('../../assets/champions/' + champion.championId + '.png')).uri;
+  // const championImageUri = Asset.fromModule(require('../../assets/champions/' + champion.championId + '.png')).uri;
 
   return (
     <View style={styles.container}>
-      <Image
+      {/* <Image
         style={styles.tinyLogo}
         source={championImageUri}
-      />
+      /> */}
       <View style={styles.containerColumn}>
         <Text style={styles.itemTitle} numberOfLines={1}>
           {champion.name}
