@@ -6,12 +6,15 @@ import { connect } from 'react-redux';
 import { getChampion } from '../redux/actions';
 
 const ChampionView = ({ champion }) => {
+  
   const traits = champion.traits.map((trait) =>
     <Text style={styles.itemChild} numberOfLines={1}>
       {trait}
     </Text>
   )
 
+  // const { value } = this.props;
+  // console.log(value)
   const championImageUri = Asset.fromModule(require('../../assets/champions/' + champion.championId + '.png')).uri;
 
   return (
@@ -65,4 +68,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ChampionView
+function mapStateToProps({ championUri }) {
+  return { value: championUri };
+}
+
+
+// export default ChampionView
+export default connect(mapStateToProps)(ChampionView)

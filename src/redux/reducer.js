@@ -1,4 +1,4 @@
-import { ADD_ITEM, GET_CHAMPIONS, SEARCH } from './actions';
+import { ADD_ITEM, GET_CHAMPIONS, GET_CHAMPION, SEARCH } from './actions';
 
 const initialState = {
     itemList: [], filteredList: [], championUri: ''
@@ -21,7 +21,7 @@ const rootReducer = (state = initialState, action) => {
                 filteredList: action.payload
             }
         case GET_CHAMPION:
-            const { champion } = action;
+            const { championUri } = action;
             return {
                 ...state,
                 championUri
