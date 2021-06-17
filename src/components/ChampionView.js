@@ -2,6 +2,9 @@ import React from 'react';
 import { View, Image, StyleSheet, Text } from 'react-native';
 import { Asset } from 'expo-asset';
 
+import { connect } from 'react-redux';
+import { getChampion } from '../redux/actions';
+
 const ChampionView = ({ champion }) => {
 
   const traits = champion.traits?.map((trait) =>

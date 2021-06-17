@@ -1,7 +1,7 @@
 import { ADD_ITEM, GET_CHAMPIONS, SEARCH } from './actions';
 
 const initialState = {
-    itemList: [], filteredList: []
+    itemList: [], filteredList: [], championUri: ''
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -10,7 +10,7 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 itemList: state.itemList.concat({
-                    championId: Math.random(),
+                    championId: Math.random(), //uuid/v4 uuidV4()
                     name: action.payload
                 })
             }
@@ -19,6 +19,12 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 itemList: action.payload,
                 filteredList: action.payload
+            }
+        case GET_CHAMPION:
+            const { champion } = action;
+            return {
+                ...state,
+                championUri
             }
         case SEARCH: {
             const { value } = action;
